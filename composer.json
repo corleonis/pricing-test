@@ -1,0 +1,10 @@
+{
+    "require": {
+        "illuminate/container": "dev-master"
+    },
+    "autoload": {
+        "psr-0": {
+            "JustPark": "src"
+        }
+    }
+}
