@@ -32,9 +32,9 @@ A base framework has been provided as a starting point. This framework includes 
 
 ## The Pricing
 
-| Hourly | Daily | Weekly | Monthly |
-| --- | --- | --- | --- |
-| £2 | £5 | £20 | £70 |
+| Hourly | Daily | Weekly | Monthly|
+|        |       |        |        |
+| £2     | £5    | £20    | £70    |
 
 ## The Examples
 

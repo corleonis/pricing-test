@@ -1,10 +1,13 @@
 {
     "require": {
-        "illuminate/container": "dev-master"
+        "illuminate/container": "5.1.*",
+        "illuminate/console": "5.1.*",
+        "phpunit/phpunit": "4.8.*",
+        "nesbot/carbon": "~1.14"
     },
     "autoload": {
-        "psr-0": {
-            "JustPark": "src"
+        "psr-4": {
+            "JustPark\\": "src/JustPark"
         }
     }
 }

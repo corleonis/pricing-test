@@ -1,0 +1,10 @@
+You can run the command by using following line:
+php app.php -vvv calculator:pricing "$(< test1.json)"
+
+There are 4 test files written, 3 from the examples and 1 from me, eg: test1.json, test2.json, test3.json, test4.json
+
+You can run any combination of dates just provide JSON in following format:
+[
+  {"start":"2015-01-09 12:00:00", "end":"2015-01-09 12:00:00"},
+  {"start":"2015-09-10 14:00:00", "end":"2015-09-10 16:00:00"}
+]
