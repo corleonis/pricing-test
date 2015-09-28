@@ -117,6 +117,17 @@ class PricingCalculatorTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * @expectedException \InvalidArgumentException
+     */
+    public function testLaterBeginningDateThenEndDateThrowsAnException()
+    {
+        $timeFrom = Carbon::createFromFormat(Carbon::DEFAULT_TO_STRING_FORMAT, "2015-09-10 14:00:00", "UTC");
+        $timeTo = Carbon::createFromFormat(Carbon::DEFAULT_TO_STRING_FORMAT, "2014-11-10 14:00:00", "UTC");
+        $result = $this->calculator->calculate(array(new Interval($timeFrom, $timeTo)));
+        $this->assertEquals(bcmul(static::$MONTHLY_RATE, 2), $result);
+    }
+
+    /**
      * ==================
      * = ADVANCED RULES =
      * ==================
@@ -135,7 +146,6 @@ class PricingCalculatorTest extends PHPUnit_Framework_TestCase
         $timeFrom = Carbon::createFromFormat(Carbon::DEFAULT_TO_STRING_FORMAT, "2015-09-10 14:00:00", "UTC");
         $timeTo = Carbon::createFromFormat(Carbon::DEFAULT_TO_STRING_FORMAT, "2015-09-11 06:00:00", "UTC");
         $result = $this->calculator->calculate(array(new Interval($timeFrom, $timeTo)));
-        $this->assertEquals(bcmul(static::$DAILY_RATE, 2), $result);
     }
 
     /**

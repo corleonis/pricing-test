@@ -3,6 +3,7 @@
 namespace JustPark;
 
 use Carbon\Carbon;
+use InvalidArgumentException;
 use JustPark\Interval\Interval;
 use JustPark\Pricing\PriceFactory;
 use JustPark\Pricing\Price;
@@ -29,12 +30,18 @@ class PricingCalculator implements PricingCalculatorInterface
      *
      * @param Interval[] $intervals
      * @return float
+     * @throws InvalidArgumentException if From date is after To date
      */
     public function calculate(array $intervals)
     {
         foreach ($intervals as $interval) {
             $from = $interval->getFrom();
             $to = $interval->getTo();
+
+            // if invert flag is set this means the $from date is after $to date
+            if ($from->diff($to, false)->invert) {
+                throw new InvalidArgumentException("Error: Beginning date cannot be after ending date!");
+            }
 
             $hours = $this->getHours($from, $to);
             $days = $this->getDays($from, $to);
