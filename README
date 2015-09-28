@@ -1,3 +1,5 @@
+To install run: composer install
+
 You can run the command by using following line:
 php app.php -vvv calculator:pricing "$(< test1.json)"
 
